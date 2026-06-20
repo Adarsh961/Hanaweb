@@ -1,34 +1,70 @@
-		</div><!-- .site-inner -->
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site">
-			<div class="site-info">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<?php bloginfo( 'name' ); ?>
-				</a>
-				&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?>
-				&mdash;
-				<?php
-				printf(
-					/* translators: %s: WordPress link */
-					esc_html__( 'Proudly powered by %s', 'hana-theme' ),
-					'<a href="https://wordpress.org/">WordPress</a>'
-				);
-				?>
-			</div>
+		<div class="container">
+			<div class="footer-grid">
 
-			<?php if ( has_nav_menu( 'footer' ) ) : ?>
-				<nav class="footer-navigation">
+				<div class="footer-brand">
+					<span class="site-title"><?php bloginfo( 'name' ); ?></span>
+					<p><?php esc_html_e( 'Enriching the lives of those who walk with us.', 'hana-theme' ); ?><br>
+					<?php esc_html_e( 'Hyderabad Based Training Center', 'hana-theme' ); ?></p>
+				</div>
+
+				<nav class="footer-nav" aria-label="<?php esc_attr_e( 'Footer', 'hana-theme' ); ?>">
+					<h4><?php esc_html_e( 'Quick Links', 'hana-theme' ); ?></h4>
 					<?php
 					wp_nav_menu( array(
 						'theme_location' => 'footer',
 						'menu_id'        => 'footer-menu',
+						'container'      => false,
 						'depth'          => 1,
 					) );
 					?>
 				</nav>
-			<?php endif; ?>
+
+				<div class="footer-contact">
+					<h4><?php esc_html_e( 'Contact', 'hana-theme' ); ?></h4>
+
+					<div class="footer-contact-item">
+						<svg class="footer-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+						</svg>
+						<span>2nd Floor, Plot no 729, Road No. 36,<br>CBI Colony, Jubilee Hills,<br>Hyderabad, Telangana 500033</span>
+					</div>
+
+					<div class="footer-contact-item">
+						<svg class="footer-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+						</svg>
+						<a href="tel:+919967592704">+91-9967592704</a>
+					</div>
+
+					<div class="footer-contact-item">
+						<svg class="footer-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+						</svg>
+						<a href="mailto:info@hanaglobaledutech.com">info@hanaglobaledutech.com</a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="footer-bottom">
+				<span>
+					&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?>
+					<?php bloginfo( 'name' ); ?>.
+					<?php esc_html_e( 'All rights reserved.', 'hana-theme' ); ?>
+				</span>
+				<span>
+					<?php
+					printf(
+						/* translators: %s: WordPress link */
+						esc_html__( 'Powered by %s', 'hana-theme' ),
+						'<a href="https://wordpress.org/">WordPress</a>'
+					);
+					?>
+				</span>
+			</div>
 		</div>
 	</footer>
 

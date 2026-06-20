@@ -10,50 +10,61 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<div id="page" class="site">
+<!-- Page Loader -->
+<div id="hana-loader" aria-hidden="true">
+	<img
+		src="<?php echo esc_url( get_template_directory_uri() . '/images/hana_logo.png' ); ?>"
+		alt=""
+		class="loader-logo"
+		width="160"
+	>
+</div>
 
-	<a class="screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'hana-theme' ); ?></a>
+<div id="page">
+
+	<a class="screen-reader-text" href="#content">
+		<?php esc_html_e( 'Skip to content', 'hana-theme' ); ?>
+	</a>
 
 	<header id="masthead" class="site-header">
-		<div class="site">
+		<div class="container">
+			<div class="header-inner">
 
-			<div class="site-branding">
-				<?php if ( is_front_page() && is_home() ) : ?>
-					<h1 class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<?php bloginfo( 'name' ); ?>
-						</a>
-					</h1>
-				<?php else : ?>
-					<p class="site-title">
-						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-							<?php bloginfo( 'name' ); ?>
-						</a>
-					</p>
-				<?php endif; ?>
+				<div class="site-branding">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="site-logo-link">
+						<img
+							src="<?php echo esc_url( get_template_directory_uri() . '/images/hana_logo.png' ); ?>"
+							alt="<?php bloginfo( 'name' ); ?>"
+							class="site-logo"
+							width="160"
+							height="48"
+						>
+					</a>
+				</div>
 
-				<?php
-				$hana_description = get_bloginfo( 'description', 'display' );
-				if ( $hana_description || is_customize_preview() ) :
-				?>
-					<p class="site-description"><?php echo esc_html( $hana_description ); ?></p>
-				<?php endif; ?>
-			</div>
-
-			<nav id="site-navigation" class="main-navigation">
-				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-					<?php esc_html_e( 'Menu', 'hana-theme' ); ?>
+				<button
+					class="menu-toggle"
+					aria-controls="primary-menu"
+					aria-expanded="false"
+					aria-label="<?php esc_attr_e( 'Toggle navigation', 'hana-theme' ); ?>"
+				>
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
 				</button>
-				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'primary',
-					'menu_id'        => 'primary-menu',
-				) );
-				?>
-			</nav>
 
+				<nav id="site-navigation" class="main-navigation" aria-label="<?php esc_attr_e( 'Primary', 'hana-theme' ); ?>">
+					<?php
+					wp_nav_menu( array(
+						'theme_location' => 'primary',
+						'menu_id'        => 'primary-menu',
+						'container'      => false,
+					) );
+					?>
+				</nav>
+
+			</div>
 		</div>
 	</header>
 
 	<div id="content" class="site-content">
-		<div class="site site-inner">
