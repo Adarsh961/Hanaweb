@@ -314,17 +314,6 @@
 		}
 	});
 
-	/* ─────────────────────────────────────────────────
-	   VOICE CARDS
-	───────────────────────────────────────────────── */
-	var voiceGrid = document.querySelector('.voices-grid');
-	if (voiceGrid) {
-		gsap.from(voiceGrid.querySelectorAll('.voice-card'), {
-			y: 60, opacity: 0, duration: 0.7, ease: 'power3.out', stagger: 0.14,
-			rotationX: 10, transformOrigin: 'center top', transformPerspective: 900,
-			scrollTrigger: { trigger: voiceGrid, start: 'top 82%', once: true }
-		});
-	}
 
 	/* ─────────────────────────────────────────────────
 	   ABOUT SECTION
