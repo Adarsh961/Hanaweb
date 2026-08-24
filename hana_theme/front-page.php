@@ -244,7 +244,7 @@
 				</div>
 				<div class="reason-block__text">
 					<span class="reason-block__num">03</span>
-					<h3>Bilingual Support<br>from India to Japan — and Beyond</h3>
+					<h3>Bilingual Support<br>from India to Japan - and Beyond</h3>
 					<p>
 						Our dedicated bilingual team deeply understands both Indian and Japanese mindsets. Support starts before you leave India and continues after you arrive in Japan. We bridge the gap between you and your employer to ensure long-term stability and success.
 					</p>
