@@ -47,11 +47,7 @@
 		</div>
 	</div>
 
-	<div class="hero-lp__wave">
-		<svg viewBox="0 0 1440 64" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-			<path d="M0,32 C360,64 1080,0 1440,32 L1440,64 L0,64 Z" fill="#FFF0F5"/>
-		</svg>
-	</div>
+	
 </section>
 
 <!-- ================================================
@@ -185,7 +181,7 @@
 <section class="section reasons-section">
 	<div class="container">
 		<p class="section-label text-center">Reason</p>
-		<h2 class="section-title text-center">3 Reasons Students Choose Hana</h2>
+		<h2 class="section-title text-center">Reasons Students Choose Hana</h2>
 
 		<!-- Reason 01 -->
 		<div class="reason-block">
