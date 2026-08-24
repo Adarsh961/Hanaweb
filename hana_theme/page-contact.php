@@ -23,7 +23,7 @@ get_header(); ?>
 					Example: src="https://your-cloudform-url.com/embed/form-id"
 				-->
 				<iframe
-					src="REPLACE_WITH_YOUR_CLOUD_FORM_EMBED_URL"
+					src="https://docs.google.com/forms/d/e/1FAIpQLSdWjq2z_b9ejLID2AkrKFNaNASrKRDkCQ670g1pOoL8BNB0Ew/viewform?embedded=true"
 					title="<?php esc_attr_e( 'Apply Now — Free Consultation Form', 'hana-theme' ); ?>"
 					loading="lazy"
 					allowfullscreen
@@ -80,7 +80,7 @@ get_header(); ?>
 						Example: src="https://www.google.com/maps/embed?pb=..."
 					-->
 					<iframe
-						src="REPLACE_WITH_GOOGLE_MAPS_EMBED_URL"
+						src="https://www.google.com/maps?q=2nd+Floor,+Plot+no+729,+Road+No.+36,+CBI+Colony,+Jubilee+Hills,+Hyderabad,+Telangana+500033&output=embed"
 						width="100%"
 						height="180"
 						style="border:0;border-radius:8px;"
