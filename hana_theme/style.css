@@ -619,6 +619,7 @@ ul, ol {
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1.5rem;
 	margin-top: 2.5rem;
+	align-items: stretch;
 }
 
 .voice-card {
@@ -627,6 +628,9 @@ ul, ol {
 	padding: 2rem;
 	box-shadow: var(--shadow-sm);
 	transition: transform var(--ease), box-shadow var(--ease);
+	display: flex;
+	flex-direction: column;
+	height: 100%;
 }
 
 .voice-card:hover {
@@ -648,7 +652,7 @@ ul, ol {
 	background: var(--clr-primary-light);
 	overflow: hidden;
 	flex-shrink: 0;
-	border: 2px solid var(--clr-primary-mid);
+	border: 2px solid var(--clr-primary-border);
 }
 
 .voice-card__avatar img {
@@ -676,7 +680,7 @@ ul, ol {
 
 .voice-card__quote::before {
 	content: '\201C';
-	font-size: 2.5rem;
+	font-size: 1.5rem;
 	color: var(--clr-primary);
 	line-height: 0;
 	vertical-align: -0.625rem;
@@ -1608,6 +1612,8 @@ ul, ol {
 	width: 100%;
 	height: clamp(300px, 42vw, 520px);
 	object-fit: cover;
+	object-position: center top;
+	
 	border-radius: var(--radius-lg);
 	box-shadow: var(--shadow-lg);
 	display: block;
@@ -1629,10 +1635,10 @@ ul, ol {
    TRUST BAR
 ============================================== */
 .trust-bar-lp {
-	background: var(--clr-primary-light);
+	background: var(--clr-white);
 	padding: 1.75rem 0;
-	border-top: 1px solid var(--clr-primary-mid);
-	border-bottom: 1px solid var(--clr-primary-mid);
+	border-top: 1px solid var(--clr-border);
+	border-bottom: 1px solid var(--clr-border);
 }
 
 .trust-grid {
@@ -2097,4 +2103,4 @@ ul, ol {
 		grid-template-columns: 1fr 1fr;
 	}
 }
-}
+
