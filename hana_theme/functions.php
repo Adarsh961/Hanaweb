@@ -4,7 +4,7 @@
  */
 
 if ( ! defined( 'HANA_VERSION' ) ) {
-	define( 'HANA_VERSION', '1.0.0' );
+	define( 'HANA_VERSION', '1.0.2' );
 }
 
 function hana_setup() {
@@ -127,3 +127,126 @@ function hana_icon( $name ) {
 
 	return '';
 }
+
+add_filter( 'body_class', function( $classes ) {
+    if ( is_page( 'caregiving' ) ) {
+        $classes[] = 'has-hero';
+    }
+    return $classes;
+} );
+
+
+add_action( 'wp_footer', function () {
+    if ( ! is_page( 'caregiving' ) ) { return; } // same slug as before
+    ?>
+    <script>
+    (function () {
+        var header = document.getElementById('masthead');
+        if (!header) return;
+        function onScroll() {
+            header.classList.toggle('is-scrolled', window.scrollY > 40);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    })();
+    </script>
+    <?php
+} );
+
+
+function hana_is_hero_page() {
+    return is_page( array( 'caregiving', 'construction', 'foreign-exchange', 'ssw' ) )
+        || is_page_template( array( 'page-construction.php', 'page-foreign-exchange.php', 'page-ssw.php' ) );
+}
+
+add_filter( 'body_class', function ( $classes ) {
+    if ( hana_is_hero_page() ) {
+        $classes[] = 'has-hero';
+    }
+    return $classes;
+} );
+
+add_action( 'wp_footer', function () {
+    if ( ! hana_is_hero_page() ) { return; }
+    ?>
+    <script>
+    (function () {
+        var header = document.getElementById('masthead');
+        if (!header) return;
+        function onScroll() {
+            header.classList.toggle('is-scrolled', window.scrollY > 40);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    })();
+    </script>
+    <?php
+} );
+
+
+//whatsapp insta
+
+add_action( 'wp_footer', function () {
+    $whatsapp_number = '919967592704';   // country code + number, digits only (no + or spaces)
+    $whatsapp_text   = 'Hi Hana Global Edutech, I would like to know more about your programs.';
+    $instagram_url   = 'https://www.instagram.com/hanaglobaledutech/';   // replace with your real page
+    ?>
+    <div class="hana-social">
+        <a class="hana-social__btn hana-social__btn--ig" href="<?php echo esc_url( $instagram_url ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Hana Global Edutech on Instagram">
+            <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zM17.2 6a1.1 1.1 0 1 1-1.1 1.1A1.1 1.1 0 0 1 17.2 6z"/></svg>
+        </a>
+        <a class="hana-social__btn hana-social__btn--wa" href="<?php echo esc_url( 'https://wa.me/' . $whatsapp_number . '?text=' . rawurlencode( $whatsapp_text ) ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Chat with Hana Global Edutech on WhatsApp">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2zm0 1.8a8.1 8.1 0 0 1 0 16.2 8 8 0 0 1-4.13-1.14l-.3-.18-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8zM8.6 7.5c-.2 0-.5.07-.77.36-.26.3-1 1-1 2.4s1.03 2.8 1.18 3c.15.2 2.03 3.1 4.9 4.3 2.4 1 2.88.8 3.4.75.52-.05 1.7-.7 1.94-1.37.24-.68.24-1.26.17-1.38-.07-.12-.26-.2-.55-.34-.3-.15-1.7-.84-1.97-.94-.26-.1-.46-.15-.65.15-.2.3-.75.94-.92 1.13-.17.2-.34.22-.63.07-.3-.15-1.22-.45-2.32-1.43-.86-.76-1.44-1.7-1.6-2-.18-.3-.02-.45.13-.6.13-.13.3-.34.44-.5.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.08-.15-.65-1.57-.9-2.15-.23-.55-.47-.48-.65-.49h-.55z"/></svg>
+        </a>
+    </div>
+    <?php
+}, 98 );
+function hana_handle_contact() {
+    $to       = 'hello@hanaglobal-japan.com';   // where enquiries are sent
+    $redirect = home_url( '/contact/' );
+
+    $nonce = isset( $_POST['hana_contact_nonce'] ) ? sanitize_text_field( wp_unslash( $_POST['hana_contact_nonce'] ) ) : '';
+    if ( ! wp_verify_nonce( $nonce, 'hana_contact' ) ) {
+        wp_safe_redirect( add_query_arg( 'sent', 'error', $redirect ) . '#contact-form' );
+        exit;
+    }
+    if ( ! empty( $_POST['hana_website'] ) ) {   // spam trap
+        wp_safe_redirect( add_query_arg( 'sent', '1', $redirect ) . '#contact-form' );
+        exit;
+    }
+
+    $name     = isset( $_POST['full_name'] ) ? sanitize_text_field( wp_unslash( $_POST['full_name'] ) ) : '';
+    $email    = isset( $_POST['email'] )     ? sanitize_email( wp_unslash( $_POST['email'] ) )          : '';
+    $phone    = isset( $_POST['phone'] )     ? sanitize_text_field( wp_unslash( $_POST['phone'] ) )     : '';
+    $interest = isset( $_POST['interest'] )  ? sanitize_text_field( wp_unslash( $_POST['interest'] ) )  : '';
+    $message  = isset( $_POST['message'] )   ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '';
+
+    if ( '' === $name || ! is_email( $email ) || '' === $phone || '' === $message ) {
+        wp_safe_redirect( add_query_arg( 'sent', 'error', $redirect ) . '#contact-form' );
+        exit;
+    }
+
+    $subject = 'New enquiry from ' . $name . ' (' . $interest . ')';
+    $body    = "Name: $name\nEmail: $email\nPhone: $phone\nInterested in: $interest\n\nMessage:\n$message\n";
+    $ok      = wp_mail( $to, $subject, $body, array( 'Reply-To: ' . $name . ' <' . $email . '>' ) );
+
+    wp_safe_redirect( add_query_arg( 'sent', $ok ? '1' : 'error', $redirect ) . '#contact-form' );
+    exit;
+}
+add_action( 'admin_post_nopriv_hana_contact', 'hana_handle_contact' );
+add_action( 'admin_post_hana_contact', 'hana_handle_contact' );
+
+add_action( 'wp_footer', function () {
+    if ( ! is_front_page() ) { return; }
+    ?>
+    <script>
+    (function () {
+        var h = document.getElementById('masthead');
+        if (!h) return;
+        function f() { h.classList.toggle('is-scrolled', window.scrollY > 40); }
+        window.addEventListener('scroll', f, { passive: true });
+        f();
+    })();
+    </script>
+    <?php
+} );

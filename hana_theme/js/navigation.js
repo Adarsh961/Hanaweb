@@ -27,3 +27,22 @@
 		}
 	});
 })();
+
+(function () {
+	var header = document.querySelector('.site-header');
+	if (!header || !document.body.classList.contains('home')) return;
+
+	var hero = document.querySelector('.hero-lp');
+	var triggerPoint = 50;
+
+	function checkScroll() {
+		if (window.scrollY > triggerPoint) {
+			header.classList.add('is-scrolled');
+		} else {
+			header.classList.remove('is-scrolled');
+		}
+	}
+
+	window.addEventListener('scroll', checkScroll);
+	checkScroll();
+})();

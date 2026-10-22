@@ -419,3 +419,134 @@
 	}
 
 })();
+
+
+
+
+(function () {
+	if (window.voicesCarouselStarted) return;
+	window.voicesCarouselStarted = true;
+	var viewport = document.querySelector('.voices-carousel__viewport');
+	var track = document.querySelector('.voices-track');
+	var dotsWrap = document.querySelector('.voices-dots');
+	var prevBtn = document.querySelector('.voices-arrow--prev');
+	var nextBtn = document.querySelector('.voices-arrow--next');
+	if (!viewport || !track || !dotsWrap) return;
+
+	var cards = track.querySelectorAll('.voice-card');
+	var index = 0;
+	var timer = null;
+	var DELAY = 4000; /* time between slides, in milliseconds */
+
+	function visibleCount() {
+		return window.innerWidth <= 768 ? 1 : 3;
+	}
+	function maxIndex() {
+		return Math.max(0, cards.length - visibleCount());
+	}
+	function buildDots() {
+		dotsWrap.innerHTML = '';
+		for (var i = 0; i <= maxIndex(); i++) {
+			var dot = document.createElement('button');
+			dot.className = 'voices-dot' + (i === index ? ' is-active' : '');
+			dot.setAttribute('data-index', i);
+			dot.addEventListener('click', function () {
+				goTo(parseInt(this.getAttribute('data-index'), 10));
+				startAuto();
+			});
+			dotsWrap.appendChild(dot);
+		}
+	}
+	function goTo(i) {
+		index = Math.max(0, Math.min(i, maxIndex()));
+		var step = cards[1] ? (cards[1].offsetLeft - cards[0].offsetLeft) : 0;
+		track.style.transform = 'translateX(-' + (step * index) + 'px)';
+		var dots = dotsWrap.querySelectorAll('.voices-dot');
+		for (var d = 0; d < dots.length; d++) {
+			dots[d].classList.toggle('is-active', d === index);
+		}
+	}
+	function next() { goTo(index >= maxIndex() ? 0 : index + 1); }
+	function prev() { goTo(index <= 0 ? maxIndex() : index - 1); }
+	function startAuto() {
+		stopAuto();
+		timer = setInterval(next, DELAY);
+	}
+	function stopAuto() {
+		if (timer) { clearInterval(timer); timer = null; }
+	}
+
+	if (nextBtn) nextBtn.addEventListener('click', function () { next(); startAuto(); });
+	if (prevBtn) prevBtn.addEventListener('click', function () { prev(); startAuto(); });
+
+	window.addEventListener('resize', function () { buildDots(); goTo(0); });
+
+	buildDots();
+	goTo(0);
+	startAuto();
+})();
+
+
+(function () {
+	if (window.teachersCarouselStarted) return;
+	window.teachersCarouselStarted = true;
+
+	var viewport = document.querySelector('.teachers-carousel__viewport');
+	var track = document.querySelector('.teachers-track');
+	var dotsWrap = document.querySelector('.teachers-dots');
+	var prevBtn = document.querySelector('.teachers-arrow--prev');
+	var nextBtn = document.querySelector('.teachers-arrow--next');
+	if (!viewport || !track || !dotsWrap) return;
+
+	var cards = track.querySelectorAll('.teacher-card');
+	var index = 0;
+	var timer = null;
+	var DELAY = 4000;
+
+	function visibleCount() {
+		return window.innerWidth <= 768 ? 1 : 3;
+	}
+	function maxIndex() {
+		return Math.max(0, cards.length - visibleCount());
+	}
+	function buildDots() {
+		dotsWrap.innerHTML = '';
+		for (var i = 0; i <= maxIndex(); i++) {
+			var dot = document.createElement('button');
+			dot.className = 'teachers-dot' + (i === index ? ' is-active' : '');
+			dot.setAttribute('data-index', i);
+			dot.addEventListener('click', function () {
+				goTo(parseInt(this.getAttribute('data-index'), 10));
+				startAuto();
+			});
+			dotsWrap.appendChild(dot);
+		}
+	}
+	function goTo(i) {
+		index = Math.max(0, Math.min(i, maxIndex()));
+		var step = cards[1] ? (cards[1].offsetLeft - cards[0].offsetLeft) : 0;
+		track.style.transform = 'translateX(-' + (step * index) + 'px)';
+		var dots = dotsWrap.querySelectorAll('.teachers-dot');
+		for (var d = 0; d < dots.length; d++) {
+			dots[d].classList.toggle('is-active', d === index);
+		}
+	}
+	function next() { goTo(index >= maxIndex() ? 0 : index + 1); }
+	function prev() { goTo(index <= 0 ? maxIndex() : index - 1); }
+	function startAuto() {
+		stopAuto();
+		timer = setInterval(next, DELAY);
+	}
+	function stopAuto() {
+		if (timer) { clearInterval(timer); timer = null; }
+	}
+
+	if (nextBtn) nextBtn.addEventListener('click', function () { next(); startAuto(); });
+	if (prevBtn) prevBtn.addEventListener('click', function () { prev(); startAuto(); });
+
+	window.addEventListener('resize', function () { buildDots(); goTo(0); });
+
+	buildDots();
+	goTo(0);
+	startAuto();
+})();

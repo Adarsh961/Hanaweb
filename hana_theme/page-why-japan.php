@@ -5,66 +5,97 @@
 get_header(); ?>
 
 <section class="page-hero">
-	<div class="container">
-		<h1>Why Japan?</h1>
-		<p>Japan is more than just a place to work. It is a place to learn, grow, and build a stronger future.</p>
-	</div>
+    <div class="container">
+        <h1>Why Japan?</h1>
+        <p>Japan is more than just a place to work. It is a place to learn, grow, and build a stronger future.</p>
+    </div>
 </section>
 
-<section class="section">
-	<div class="container">
-
-		<div style="max-width:800px;">
-			<p class="section-lead" style="margin-bottom:0.5rem;">
-				Working in Japan gives students opportunities to gain professional skills, international experience, Japanese language ability, and personal growth.
-			</p>
-		</div>
-
-		<div class="reason-list" style="max-width:800px;margin-top:3rem;">
-
-			<div class="reason-item">
-				<div class="reason-item__num">1</div>
-				<div class="reason-item__content">
-					<h3>Stable Career Opportunities</h3>
-					<p>Japan offers long-term, stable employment in high-demand industries such as caregiving, construction, food service, and manufacturing. The skills and experience you gain in Japan will serve you for a lifetime, building a professional foundation that opens doors far beyond what is available at home.</p>
-				</div>
-			</div>
-
-			<div class="reason-item">
-				<div class="reason-item__num">2</div>
-				<div class="reason-item__content">
-					<h3>Japanese Language Skills</h3>
-					<p>Learning Japanese is one of the most valuable investments you can make in your future. Japanese communication skills open doors to international opportunities not just in Japan, but globally &mdash; setting you apart in any career you choose to pursue.</p>
-				</div>
-			</div>
-
-			<div class="reason-item">
-				<div class="reason-item__num">3</div>
-				<div class="reason-item__content">
-					<h3>Personal Growth</h3>
-					<p>Living and working independently in a new country develops confidence, responsibility, and independence that no classroom can teach. These are qualities that will define your character and elevate every area of your personal and professional life.</p>
-				</div>
-			</div>
-
-			<div class="reason-item">
-				<div class="reason-item__num">4</div>
-				<div class="reason-item__content">
-					<h3>Global Experience</h3>
-					<p>Immerse yourself in Japanese culture, practice world-class teamwork, and build international communication skills. Japan is renowned for its standards of professionalism, punctuality, and excellence &mdash; working there shapes you into a globally competitive professional.</p>
-				</div>
-			</div>
-
-			<div class="reason-item">
-				<div class="reason-item__num">5</div>
-				<div class="reason-item__content">
-					<h3>Future Opportunities</h3>
-					<p>A career in Japan is not just about you &mdash; it is about creating better opportunities for your entire family. The financial stability and global experience you gain will transform your family&rsquo;s future and open possibilities that were once out of reach.</p>
-				</div>
-			</div>
-
-		</div>
-	</div>
+<!-- INTRO -->
+<section class="wj-intro">
+    <div class="container">
+        <p class="wj-intro__lead reveal">
+            Working in Japan gives students opportunities to gain <mark>professional skills</mark>, <mark>international experience</mark>, <mark>Japanese language ability</mark>, and <mark>personal growth</mark>.
+        </p>
+    </div>
 </section>
+
+<!-- INDUSTRIES BAND -->
+<section class="wj-industries">
+    <div class="container">
+        <p class="wj-industries__label reveal about-hana__label">High-demand industries</p>
+        <div class="wj-industries__chips">
+            <span class="reveal" style="--d:0s">🏥 Caregiving</span>
+            <span class="reveal" style="--d:.1s">🏗️ Construction</span>
+        </div>
+    </div>
+</section>
+
+<!-- FIVE REASONS: TIMELINE -->
+<section class="wj-reasons">
+    <div class="container">
+        <p class="wj-reasons__label reveal about-hana__label">Five reasons</p>
+        <h2 class="wj-reasons__title reveal">Why students choose Japan</h2>
+
+        <div class="wj-timeline">
+
+            <div class="wj-card reveal">
+                <span class="wj-card__num">1</span>
+                <div class="wj-card__icon">💼</div>
+                <h3>Stable Career Opportunities</h3>
+                <p>Japan offers exceptional stability and career longevity across vital industries—such as caregiving, construction, manufacturing, and food service.
+
+By training and working in Japan, you acquire practical technical expertise, cross-cultural competence, and international work standards. The experience and credentials you gain serve as a lifelong professional foundation, giving you a distinct competitive advantage in the global job market.</p>
+            </div>
+
+            <div class="wj-card reveal">
+                <span class="wj-card__num">2</span>
+                <div class="wj-card__icon">🗣️</div>
+                <h3>Japanese Language Skills</h3>
+                <p>In today's interconnected economy, Japanese communication skills represent a significant strategic advantage. Fluency opens direct access to high-demand sectors in Japan and global Japanese enterprises operating worldwide. By mastering the language, you build a distinguished professional profile that expands your career trajectory far beyond conventional local opportunities.</p>
+            </div>
+
+            <div class="wj-card reveal">
+                <span class="wj-card__num">3</span>
+                <div class="wj-card__icon">🌱</div>
+                <h3>Personal Growth</h3>
+                <p>Navigating life and work in an international environment is a catalyst for profound personal growth. Beyond technical competencies, independent living abroad develops high-level adaptability, accountability, and maturity. These core qualities serve as a lifelong foundation, enhancing your leadership potential and distinguishing you across all future career paths.</p>
+            </div>
+
+            <div class="wj-card reveal">
+                <span class="wj-card__num">4</span>
+                <div class="wj-card__icon">🌏</div>
+                <h3>Global Experience</h3>
+                <p>Japan is globally renowned for its commitment to quality, discipline, and operational perfection. Immersing yourself in a Japanese professional environment instills a refined work ethic, structured problem-solving skills, and seamless teamwork. The international communication skills and professional standards you develop in Japan provide a lifetime competitive advantage across global markets.</p>
+            </div>
+
+            <div class="wj-card reveal">
+                <span class="wj-card__num">5</span>
+                <div class="wj-card__icon">👨‍👩‍👧</div>
+                <h3>Future Opportunities</h3>
+                <p>Securing professional employment in Japan is a strategic catalyst for long-term family growth. Beyond personal advancement, the financial security and international experience you gain establish a strong economic foundation. This transition transforms your family’s trajectory—providing the resources, security, and global exposure necessary to create unprecedented opportunities for the future.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<script>
+(function () {
+    var items = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || !items.length) return;
+    document.documentElement.classList.add('reveal-ready');
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+            if (e.isIntersecting) {
+                e.target.classList.add('is-visible');
+                io.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    items.forEach(function (el) { io.observe(el); });
+})();
+</script>
 
 <?php get_template_part( 'template-parts/section', 'cta' ); ?>
 
